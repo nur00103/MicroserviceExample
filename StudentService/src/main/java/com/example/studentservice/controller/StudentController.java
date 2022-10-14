@@ -4,7 +4,6 @@ import com.example.studentservice.request.CreateStudentRequest;
 import com.example.studentservice.response.StudentResponse;
 import com.example.studentservice.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +23,7 @@ public class StudentController {
 		return studentService.createStudent(createStudentRequest);
 	}
 	
-	@GetMapping("getById/{id}")
+	@GetMapping("/getById/{id}")
 	public StudentResponse getById (@PathVariable long id) {
 		return studentService.getById(id);
 	}
