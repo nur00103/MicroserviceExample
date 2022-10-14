@@ -1,0 +1,16 @@
+#spring:
+#  cloud:
+#    discovery:
+#      locator:
+#        enabled: true
+#        lowerCaseServiceId: true
+#    gateway:
+#      routes:
+#        - id: address-service
+#          uri: lb://address-service
+#          predicates:
+#            - Path=/api/address/**
+#        - id: student-service
+#          uri: lb://student-service
+#          predicates:
+#            - Path=/api/student/**
