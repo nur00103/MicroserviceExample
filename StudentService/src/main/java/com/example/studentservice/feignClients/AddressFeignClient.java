@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 //// Without Eureka
-@FeignClient(url = "${address.service.url}" ,value = "address-feign-client" /* we can use the PATH after url*/)
-//@FeignClient(value = "ADDRESS-SERVICE") //With eureka client
+//@FeignClient(url = "${address.service.url}" ,value = "address-feign-client" /* we can use the PATH after url*/)
+@FeignClient(value = "api-gateway") //With eureka client
 public interface AddressFeignClient {
 
-    @GetMapping("/getById/{id}")
+    @GetMapping("/api/address/getById/{id}")
     public AddressResponse getById(@PathVariable long id);
 }

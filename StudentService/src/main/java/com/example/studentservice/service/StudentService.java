@@ -50,7 +50,7 @@ public class StudentService {
 		return studentResponse;
 	}
 
-	//Calling Address microservice
+	//Calling Address microservice with WebClient
 	public AddressResponse getAddressById(long addressId){
 		Mono<AddressResponse> addressResponseMono=webClient.get().uri("/getById/"+addressId)
 				.retrieve().bodyToMono(AddressResponse.class);

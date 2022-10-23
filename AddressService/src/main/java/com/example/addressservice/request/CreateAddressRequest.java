@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class CreateAddressRequest {
 
-	private String street;
-	private String city;
+    private String street;
+    private String city;
 
 
 }

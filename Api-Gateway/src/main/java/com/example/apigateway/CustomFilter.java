@@ -13,14 +13,14 @@ import reactor.core.publisher.Mono;
 @Configuration
 public class CustomFilter implements GlobalFilter {
 
-    Logger logger= LoggerFactory.getLogger(CustomFilter.class);
+    Logger logger = LoggerFactory.getLogger(CustomFilter.class);
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        ServerHttpRequest httpRequest=exchange.getRequest();
-        logger.info("Authorization: "+ httpRequest.getHeaders().getFirst("Authorization"));
-        return chain.filter(exchange).then(Mono.fromRunnable(()->{
-            ServerHttpResponse httpResponse=exchange.getResponse();
+        ServerHttpRequest httpRequest = exchange.getRequest();
+        logger.info("Authorization: " + httpRequest.getHeaders().getFirst("Authorization"));
+        return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+            ServerHttpResponse httpResponse = exchange.getResponse();
             logger.info("Post filter: " + httpResponse.getStatusCode());
         }));
     }

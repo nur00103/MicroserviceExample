@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class AddressController {
 
-	private final AddressService addressService;
+    private final AddressService addressService;
 
-	@PostMapping("/create")
-	public AddressResponse createAddress (@RequestBody CreateAddressRequest createAddressRequest) {
-		return addressService.createAddress(createAddressRequest);
-	}
-	
-	@GetMapping("/getById/{id}")
-	public AddressResponse getById(@PathVariable long id) {
-		return addressService.getById(id);
-	}
-	
+    @PostMapping("/create")
+    public AddressResponse createAddress(@RequestBody CreateAddressRequest createAddressRequest) {
+        return addressService.createAddress(createAddressRequest);
+    }
+
+    @GetMapping("/getById/{id}")
+    public AddressResponse getById(@PathVariable long id) {
+        return addressService.getById(id);
+    }
+
 }
