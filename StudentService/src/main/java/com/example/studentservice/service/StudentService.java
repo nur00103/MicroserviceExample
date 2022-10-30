@@ -8,6 +8,8 @@ import com.example.studentservice.response.AddressResponse;
 import com.example.studentservice.response.StudentResponse;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -21,6 +23,7 @@ public class StudentService {
 	private final WebClient webClient;
 	private final CommonService commonService;
 
+	Logger logger= LoggerFactory.getLogger(StudentService.class);
 	public StudentResponse createStudent(CreateStudentRequest createStudentRequest) {
 
 		Student student = new Student();
@@ -41,6 +44,7 @@ public class StudentService {
 	}
 	
 	public StudentResponse getById (long id) {
+		logger.info("Inside student getById:");
 		Student student=studentRepository.findById(id).get();
 		StudentResponse studentResponse=new StudentResponse(student);
 		//Set addres with WebClient
